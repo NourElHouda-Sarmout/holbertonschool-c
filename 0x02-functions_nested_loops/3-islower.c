@@ -7,7 +7,7 @@
  */
 int _islower(int c)
 {
-	if  (c >= UC('a') && c <= UC('z'))
+	if  (c >= 'a' && c <= 'z')
 		return (1);
 	return (0);
 }
