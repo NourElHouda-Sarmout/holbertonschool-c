@@ -1,7 +1,7 @@
 /**
  * add -  add two integer
- *@i
- *@j
+ *@i: integer
+ *@j: integer
  *
  * Return: void
  */
