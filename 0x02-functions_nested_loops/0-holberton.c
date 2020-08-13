@@ -1,9 +1,8 @@
 #include "holberton.h"
 /**
  * main - prints holberton
- * @c: The character to print
  *
- * Return: On success 1.
+ * Return: 0 (Success)
  */
 int main(void)
 {
@@ -20,5 +19,5 @@ int main(void)
 	_putchar('\n');
 
 
-	return(0);
+	return (0);
 }
