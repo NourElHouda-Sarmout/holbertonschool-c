@@ -8,9 +8,31 @@
  */
 void print_rev(char *s)
 {
-	if (*s)
+	int j , length;
+
+	length = string_length(s);
+
+	for (j = length - 1; j >= 0; j--)
 	{
-		print_rev(s + 1);
-		_putchar(*s);
+		_putchar(s[j]);
 	}
+
+	_putchar('\n');
+
+}
+
+/**
+ *string_length - determine the length of a string
+ *@s: a pointer the string we want to know its length
+ *
+ * Return: int (length of a string)
+ */
+int string_length(char *s)
+{
+	int c = 0;
+
+	while (*(s + c) != '\0')
+		c++;
+
+	return (c);
 }
