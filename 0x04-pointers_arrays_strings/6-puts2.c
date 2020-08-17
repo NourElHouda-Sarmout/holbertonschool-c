@@ -1,10 +1,9 @@
 #include "holberton.h"
 
 /**
- *puts2 - prints every other character of a string
+ *puts2- prints every other character of a string
  *@str: a pointer the string we want to print
- *
- * Return: void
+ *Return: void
  */
 void puts2(char *str)
 {
@@ -14,5 +13,4 @@ void puts2(char *str)
 		_putchar(*c);
 
 	_putchar('\n');
-
 }
