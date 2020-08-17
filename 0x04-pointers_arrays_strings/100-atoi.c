@@ -6,7 +6,7 @@
  *
  * Return: boolean
  */
-boolean isNumericChar(char x)
+bool isNumericChar(char x)
 {
 	return ((x >= '0' && x <= '9') ? true : false);
 }
