@@ -1,24 +1,30 @@
 /**
  * rot13 - encodes a string into rot13
- * @Ch: string
+ * @str: string
  *
  * Return: pointer to encoded string
  */
-char *rot13(char *Ch)
+char *rot13(char *str)
 {
-	int i;
+	char *input, *output;
+	int count, count2;
 
-
-	for (i = 0; Ch[i] != '\0'; i++)
+	input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	count = 0;
+	while (str[count] != '\0')
 	{
-		if ((*(Ch + i) >= 'a' && *(Ch + i) < 'n')
-		    || (*(Ch + i) >= 'A' && *(Ch + i) < 'N'))
-			*(Ch + i) += 13;
-
-		else if ((*(Ch + i) > 'm' && *(Ch + i) < 'z')
-			 || (*(Ch + i) > 'M' && *(Ch + i) < 'Z'))
-			*(Ch + i) -= 13;
+		count2 = 0;
+		while (input[count2] != '\0')
+		{
+			if (str[count] == input[count2])
+			{
+				str[count] = output[count2];
+				break;
+			}
+			count2++;
+		}
+		count++;
 	}
-
-	return (Ch);
+	return (str);
 }
