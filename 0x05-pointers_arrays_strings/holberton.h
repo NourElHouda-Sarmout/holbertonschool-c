@@ -8,3 +8,4 @@ char *string_toupper(char *);
 char *cap_string(char *);
 char *leet(char *);
 void replaceAll(char *str, char oldChar, char newChar);
+char *rot13(char *);
