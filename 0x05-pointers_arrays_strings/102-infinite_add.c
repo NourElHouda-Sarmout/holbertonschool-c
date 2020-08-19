@@ -9,22 +9,49 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-int count, count2;
+	unsigned int num = 0;
+	char *p = r;
+	int i = 0;
+	int j = 0;
+	int carry = 0;
+	long int length = 0;
+	long int rsiz = size_r;
 
-while (n1[count] != '\0')
-	count++;
-while (n2[count2] != '\0')
-	count2++;
+	for (; *(n1 + 1); i++)
+	{
+		n1++;
+	}
+	for (; *(n2 + 1); j++)
+	{
+		n2++;
+	}
+	if (j >= i)
+		i = j;
+	length = i;
+	while (size_r)
+	{
+		r++;
+		size_r--;
+	}
+	for (; i; i--)
+	{
+		num += (n2[i] - '0' + n1[i] - '0') % 10 + carry;
+		carry = 0;
+		if (n2[i] - '0' + n1[i] - '0' > 9)
+			carry = 1;
+	}
+	if (length > rsiz)
+		return (0);
+        if (length == rsiz && carry == 1)
+		return (0);
+	else
+	{
+		for (; rsiz; rsiz--)
+		{
+			r[rsiz] = (num % 10) + '0';
+			num -= num % 10;
+		}
+	}
+	return (p);
 
-*r = *(r + size_r);
-while (n1[count] > 0 || n1[count2] > 0)
-{
-if (n1[count] + n2[count2] > 0)
-	*r = n1[count - 1] + n2[count2 - 1] + 1;
-else
-	*r = n1[count] + n2[count2];
-count--;
-count2--;
-}
-return (r);
 }
