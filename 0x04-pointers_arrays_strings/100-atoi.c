@@ -1,47 +1,48 @@
 #include "holberton.h"
-
 /**
- *isNumericChar - test if is numeric
- *@x: a char to test
- *
- * Return: boolean
+ * _isdigit - Check for digits (0 through 9)
+ * @c: int type param
+ * Return: 1 if digit, else 0
  */
-bool isNumericChar(char x)
+
+int _isdigit(int c)
 {
-	return ((x >= '0' && x <= '9') ? true : false);
+	if (c > 47 && c < 58)
+		return (1);
+
+	return (0);
 }
 
+
 /**
- *_atoi - test if is numeric
- *@s: a char to test
- *
- * Return: int
+ * _atoi - program to converst ASCII to integer
+ * @s: pointer to array of character
+ * Return: Always successful
  */
+
 int _atoi(char *s)
 {
-	if (*s == '\0')
-		return (0);
-
-	int res = 0;
-
+	int digit;
+	int count = 0;
 	int sign = 1;
+	unsigned int value = 0;
+	unsigned int pos = 1;
 
-	int i = 0;
-
-	if (s[0] == '-')
-
-{
-		sign = -1;
-		i++;
-	}
-
-	for (; s[i] != '\0'; ++i)
+	for (digit = 0; ((s[digit] < '0') || (s[digit] > '9')); digit++)
 	{
-		if (isNumericChar(str[i]) == false)
-			return (0);
-
-		res = res * 10 + str[i] - '0';
+		if (s[digit] == '-')
+			sign *= -1;
 	}
-
-	return (sign * res);
+	for (; _isdigit(s[digit]); digit++)
+	{
+		count++;
+	}
+	while (count > 0)
+	{
+		value += ((s[digit - 1] - 48) * pos);
+		pos *= 10;
+		count--;
+		digit--;
+	}
+	return (value * sign);
 }
