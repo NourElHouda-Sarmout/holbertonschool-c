@@ -53,8 +53,12 @@ char **strtow(char *str)
 		while (str[pos] == ' ')
 			pos++;
 		tmp = pos;
-		while (str[pos++] != ' ')
+		while (str[pos] && str[pos] != ' ')
+		{
 			size++;
+			pos++;
+		}
+
 		tmpP = malloc(sizeof(char) * (size + 1));
 		if (!tmpP)
 		{
