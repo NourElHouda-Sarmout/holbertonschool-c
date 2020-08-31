@@ -45,6 +45,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		arr1[i] = arr2[i];
 	}
 
+	for (i = old_size; i < new_size ; i++)
+	{
+		arr1[i] = '\0';
+	}
 
 	return (newPtr);
 }
