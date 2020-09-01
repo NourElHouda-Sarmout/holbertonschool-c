@@ -1,4 +1,7 @@
-#trcopy(char *dest, char *src);
+#include "dog.h"
+#include <stdlib.h>
+
+char *_strcopy(char *dest, char *src);
 
 
 
