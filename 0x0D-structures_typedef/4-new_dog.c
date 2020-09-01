@@ -1,5 +1,6 @@
-#include "dog.h"
-#include <stdlib.h>
+#trcopy(char *dest, char *src);
+
+
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -11,7 +12,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	newDog = malloc(sizeof(dog_t));
 	if (newDog == NULL)
-		return (NULL);
+		return NULL;
 
 	for (i = 0; name[i]; i++)
 		name_len++;
@@ -34,9 +35,29 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	newDog->name = name;
+	newDog->name = _strcopy(newDog->name, name);
 	newDog->age = age;
-	newDog->owner = owner;
+	newDog->owner = _strcopy(newDog->owner, owner);
 
 	return (newDog);
+}
+
+/**
+ * _strcopy - Copies a string pointed to by src, including the
+ *            terminating null byte, to a buffer pointed to by dest.
+ * @dest: The buffer storing the string copy.
+ * @src: The source string.
+ *
+ * Return: The pointer to dest.
+ */
+char *_strcopy(char *dest, char *src)
+{
+	int index = 0;
+
+	for (index = 0; src[index]; index++)
+		dest[index] = src[index];
+
+	dest[index] = '\0';
+
+	return (dest);
 }
